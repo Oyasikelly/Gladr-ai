@@ -1,0 +1,48 @@
+[
+	{
+		"title": "Smart Document Upload",
+		"color": "EBF4FF",
+		"id": 1,
+		"icon": "/assets/icon-cube-box.svg",
+		"description": "Upload PDFs, Course materials, Documents. AI instantly processes any format."
+	},
+	{
+		"title": "Chat with Documents",
+		"color": "DCD7FE",
+		"id": 2,
+		"icons": {
+			"tv": "/assets/icon-tv.svg",
+			"star": "/assets/icon-star.svg"
+		},
+		"description": "Have interactive conversations with your study materials. Ask questions and get instant explanations."
+	},
+	{
+		"title": "Custom Quiz Generation",
+		"color": "FCD9BD",
+		"id": 3,
+		"icon": "/assets/icon-touching.svg",
+		"description": "Generate multiple choice, flashcards, or true/false questions. Choose difficulty and question counts."
+	},
+	{
+		"title": "Timed Assessments",
+		"color": "EDFAFA",
+		"id": 4,
+		"icon": "/assets/icon-rocket.svg",
+		"description": "Take timed quizzes with instant scoring and feedback. Share quiz links with classmates."
+	},
+
+	{
+		"title": "Progress Dashboard",
+		"color": "F9FAFB",
+		"id": 5,
+		"icon": "/assets/icon-checked.svg",
+		"description": "Track study time, quiz performance, and improvement trends with detailed analytics."
+	},
+	{
+		"title": "Mobile & Web Access",
+		"color": "F0F5FF",
+		"id": 6,
+		"icon": "/assets/icon-rotate-screen.svg",
+		"description": "Study anywhere with responsive web and mobile apps. Sync progress across all devices."
+	}
+]
