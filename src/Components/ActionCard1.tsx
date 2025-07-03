@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { colors } from "@/data/color";
 
 const action1Data = [
@@ -24,36 +23,8 @@ const action1Data = [
 ];
 
 function AnimatedActionCard({ action, index }: { action: any; index: number }) {
-	const ref = useRef(null);
-	const controls = useAnimation();
-	const inView = useInView(ref, { amount: 0.5 });
-
-	useEffect(() => {
-		if (inView) {
-			controls.start("visible");
-		} else {
-			controls.start("hidden");
-		}
-	}, [inView, controls]);
-
 	return (
-		<motion.div
-			ref={ref}
-			initial="hidden"
-			animate={controls}
-			variants={{
-				hidden: { opacity: 0, scale: 0.95, y: 20 },
-				visible: {
-					opacity: 1,
-					scale: [1, 1.08, 1],
-					y: 0,
-					transition: {
-						duration: 1.2,
-						ease: "easeInOut",
-						delay: index * 0.2,
-					},
-				},
-			}}
+		<div
 			style={{ background: `${action.color}` }}
 			className="w-[90%] lg:w-full p-6 rounded-xl shadow-md mx-1 md:mx-0 transition duration-300 md:hover:brightness-90 md:hover:-translate-y-2 active:scale-95">
 			<div>
@@ -79,7 +50,7 @@ function AnimatedActionCard({ action, index }: { action: any; index: number }) {
 					className="w-full"
 				/>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
 

@@ -46,7 +46,7 @@ function AnimatedSection({
 
 export default function Footer() {
 	return (
-		<footer className="bg-black text-white px-6 md:px-16 py-12 overflow-hidden">
+		<footer className="bg-[#040404] text-white px-6 md:px-20 py-14 overflow-hidden">
 			<div className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 w-full">
 				{/* Left Section */}
 				<AnimatedSection delay={0}>
@@ -89,7 +89,7 @@ export default function Footer() {
 											repeat: Infinity,
 											delay: i * 0.4,
 										}}
-										className="w-8 h-8 rounded-full flex justify-center items-center bg-gray-800 text-gray-300 hover:text-white hover:bg-[#4319BC] transition">
+										className="w-8 h-8 rounded-full flex justify-center items-center  hover:text-white hover:bg-[#4319BC] transition">
 										<Icon />
 									</motion.div>
 								)
@@ -116,7 +116,7 @@ export default function Footer() {
 								</motion.a>
 							))}
 						</div>
-						<div className="flex flex-col gap-2 min-w-[120px]">
+						<div className="flex flex-col justify-end gap-2 min-w-[120px]">
 							{["Pricing", "Contact us"].map((text, i) => (
 								<motion.a
 									key={i}
@@ -127,17 +127,17 @@ export default function Footer() {
 								</motion.a>
 							))}
 						</div>
-						<div className="flex flex-col gap-2 text-gray-500 min-w-[120px] mt-4 md:mt-16">
-							{["Privacy Policy", "Terms & Conditions"].map((text, i) => (
-								<motion.a
-									key={i}
-									whileHover={{ x: 5 }}
-									href="#"
-									className="hover:text-gray-300 transition">
-									{text}
-								</motion.a>
-							))}
-						</div>
+					</div>
+					<div className="flex flex-col md:flex-row items-center gap-12 text-gray-500 min-w-[120px] mt-4 md:mt-16">
+						{["Privacy Policy", "Terms & Conditions"].map((text, i) => (
+							<motion.a
+								key={i}
+								whileHover={{ x: 5 }}
+								href="#"
+								className="text-[#797777] hover:text-gray-300 transition">
+								{text}
+							</motion.a>
+						))}
 					</div>
 				</AnimatedSection>
 			</div>

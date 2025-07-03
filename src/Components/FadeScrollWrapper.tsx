@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface FadeScrollWrapperProps {
 	children: React.ReactNode;
@@ -15,14 +15,14 @@ export default function FadeScrollWrapper({
 	const ref = useRef(null);
 	const controls = useAnimation();
 	const inView = useInView(ref, { amount: 0.4 });
+	const [hasAnimated, setHasAnimated] = useState(false);
 
 	useEffect(() => {
-		if (inView) {
+		if (inView && !hasAnimated) {
 			controls.start("visible");
-		} else {
-			controls.start("exit");
+			setHasAnimated(true);
 		}
-	}, [inView, controls]);
+	}, [inView, controls, hasAnimated]);
 
 	return (
 		<motion.div

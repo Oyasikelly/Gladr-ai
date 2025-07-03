@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { colors } from "@/data/color";
 
@@ -26,42 +25,8 @@ const action2Data = [
 ];
 
 function AnimatedCard({ action, index }: { action: any; index: number }) {
-	const ref = useRef(null);
-	const cardControls = useAnimation();
-	const titleControls = useAnimation();
-	const inView = useInView(ref, { amount: 0.5 });
-
-	useEffect(() => {
-		if (inView) {
-			// Start infinite pulsing animation
-			cardControls.start({
-				scale: [1, 1.02, 1],
-				transition: {
-					repeat: Infinity,
-					repeatType: "reverse",
-					duration: 2,
-					delay: index * 0.4,
-					ease: "easeInOut",
-				},
-			});
-			// Title bounce once
-			titleControls.start("pop");
-		} else {
-			cardControls.stop(); // Stop animation when out of view
-		}
-	}, [inView]);
-
 	return (
-		<motion.div
-			ref={ref}
-			initial={{ opacity: 0, scale: 0.9, y: 30, rotate: -5 }}
-			animate={cardControls}
-			whileInView={{
-				opacity: 1,
-				y: 0,
-				rotate: 0,
-				transition: { duration: 0.9, ease: "easeOut", delay: index * 0.3 },
-			}}
+		<div
 			style={{ background: `${action.color}` }}
 			className="grid grid-col md:grid-cols-2 justify-items-center w-[90%] lg:w-full p-6 rounded-xl shadow-md mx-1 md:mx-0 transition duration-300">
 			{action.id === 1 ? (
@@ -70,19 +35,11 @@ function AnimatedCard({ action, index }: { action: any; index: number }) {
 						<p className="bg-white rounded-full my-4 text-[12px] lg:text-base py-1 px-4">
 							{action.smallTitle}
 						</p>
-						<motion.h2
+						<h2
 							style={{ color: colors.darker }}
-							className="text-xl lg:text-2xl font-bold mb-3"
-							initial={{ scale: 1 }}
-							animate={titleControls}
-							variants={{
-								pop: {
-									scale: [1, 1.1, 1],
-									transition: { duration: 0.4 },
-								},
-							}}>
+							className="text-xl lg:text-2xl font-bold mb-3">
 							{action.biggerTitle}
-						</motion.h2>
+						</h2>
 						<p
 							className="text-[12px] md:text-base"
 							style={{ color: colors.darker }}>
@@ -115,19 +72,11 @@ function AnimatedCard({ action, index }: { action: any; index: number }) {
 						<p className="bg-white rounded-full my-4 text-[12px] lg:text-base py-1 px-4">
 							{action.smallTitle}
 						</p>
-						<motion.h2
+						<h2
 							style={{ color: colors.darker }}
-							className="text-xl lg:text-2xl font-bold mb-3"
-							initial={{ scale: 1 }}
-							animate={titleControls}
-							variants={{
-								pop: {
-									scale: [1, 1.1, 1],
-									transition: { duration: 0.4 },
-								},
-							}}>
+							className="text-xl lg:text-2xl font-bold mb-3">
 							{action.biggerTitle}
-						</motion.h2>
+						</h2>
 						<p
 							className="text-[12px] md:text-base"
 							style={{ color: colors.darker }}>
@@ -141,7 +90,7 @@ function AnimatedCard({ action, index }: { action: any; index: number }) {
 					</div>
 				</>
 			)}
-		</motion.div>
+		</div>
 	);
 }
 

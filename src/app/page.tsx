@@ -5,6 +5,7 @@ import ActionSection from "@/Components/ActionSection";
 import HowItWorks from "@/Components/HowItWorks";
 import PricingPlans from "@/Components/PriciningPlans";
 import GladrApp from "@/Components/GladrApp";
+import FAQ from "@/Components/FAQ";
 
 export default function Home() {
 	return (
@@ -22,6 +23,7 @@ export default function Home() {
 			<ActionSection />
 			<HowItWorks />
 			<PricingPlans />
+			<FAQ />
 			<GladrApp />
 		</div>
 	);

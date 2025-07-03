@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { colors } from "@/data/color";
 import features from "../data/features.json";
 
@@ -20,40 +19,8 @@ function FeatureCard() {
 }
 
 function AnimatedCard({ feature, index }: { feature: any; index: number }) {
-	const ref = useRef(null);
-	const controls = useAnimation();
-	const inView = useInView(ref, { amount: 0.5 });
-
-	useEffect(() => {
-		if (inView) {
-			controls.start("visible");
-		} else {
-			controls.start("hidden");
-		}
-	}, [inView, controls]);
-
 	return (
-		<motion.div
-			ref={ref}
-			initial="hidden"
-			animate={controls}
-			variants={{
-				hidden: {
-					opacity: 0,
-					scale: 0.9,
-					y: 20,
-				},
-				visible: {
-					opacity: 1,
-					scale: [1, 1.08, 1],
-					y: 0,
-					transition: {
-						duration: 1.2,
-						ease: "easeInOut",
-						delay: index * 0.1, // Different interval based on index
-					},
-				},
-			}}
+		<div
 			style={{
 				background: `#${feature.color}`,
 			}}
@@ -90,7 +57,7 @@ function AnimatedCard({ feature, index }: { feature: any; index: number }) {
 				style={{ color: colors.darker }}>
 				{feature.description}
 			</p>
-		</motion.div>
+		</div>
 	);
 }
 

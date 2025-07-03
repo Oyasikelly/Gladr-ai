@@ -9,7 +9,7 @@ function FeaturesSection() {
 		<section
 			id="features"
 			className="lg:px-40 mt-10 w-full flex flex-col items-center">
-			<div className="text-center w-[auto] lg:w-[673px]">
+			<div className="text-center w-[70vw] lg:w-[70vw]">
 				<FadeScrollWrapper>
 					<motion.h1
 						initial={{ opacity: 0, y: 30 }}
@@ -18,11 +18,12 @@ function FeaturesSection() {
 						transition={{ duration: 1 }}>
 						<span
 							style={{ color: colors.darker }}
-							className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+							className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ">
 							Yes,{" "}
 							<span className="bg-gradient-to-r from-[#FF2E2E] via-[#EE7B16] via-[#8A43E1] to-[#D510FC] bg-clip-text text-transparent">
 								Gladr is Everything
 							</span>{" "}
+							<br />
 							You Need To Excel
 						</span>
 					</motion.h1>

@@ -6,19 +6,19 @@ import { colors } from "@/data/color";
 
 const howItWorks = [
 	{
-		title: "Smart Document Upload",
+		title: "Upload Your Material",
 		content:
-			"Upload PDFs, Course materials, Documents. AI instantly processes any format.",
+			"Simply upload any PDF, PowerPoint. Our AI will analyze and process your content instantly.",
 	},
 	{
-		title: "Chat with Documents",
+		title: "Choose Your Study Mode",
 		content:
-			"Have interactive conversations with your study materials. Ask questions and get instant explanations.",
+			"Chat with your documents for interactive learning or generate custom quizzes with your preferred question types and difficulty.",
 	},
 	{
-		title: "Custom Quiz Generation",
+		title: "Learn & Track Progress",
 		content:
-			"Generate multiple choice, flashcards, or true/false questions. Choose difficulty and question counts.",
+			"Take timed assessments, review your performance, and watch your knowledge grow with detailed progress tracking.",
 	},
 ];
 
@@ -33,24 +33,6 @@ function AnimatedWorkCard({
 }) {
 	const ref = useRef(null);
 	const controls = useAnimation();
-	const isInView = useInView(ref, { amount: 0.5 });
-
-	useEffect(() => {
-		if (isInView) {
-			controls.start({
-				scale: [1, 1.05, 1],
-				transition: {
-					repeat: Infinity,
-					repeatType: "reverse",
-					duration: 1.8,
-					delay: index * 0.3,
-					ease: "easeInOut",
-				},
-			});
-		} else {
-			controls.stop();
-		}
-	}, [isInView]);
 
 	return (
 		<motion.div
@@ -64,14 +46,18 @@ function AnimatedWorkCard({
 				transition: { duration: 0.6, ease: "easeOut" },
 			}}
 			className="w-full bg-[#FFFFFF1A] rounded-xl flex flex-col items-center my-[15px]">
-			<div className="w-[90%] mt-4 lg:w-[356px] h-[4px] bg-[#64A7FA]"></div>
+			<div className="w-[90%] mt-[15px] lg:w-[356px] h-[4px] bg-[#64A7FA]"></div>
 			<div className="w-[241px] my-[10px]">
 				<h2
 					style={{ color: colors.white }}
-					className="text-xl lg:text-2xl font-bold mt-4 mb-3">
+					className="font-[700] text-xl lg:text-2xl font-bold mt-4 mb-3">
 					{title}
 				</h2>
-				<p style={{ color: colors.white, opacity: 0.6 }}>{content}</p>
+				<p
+					style={{ color: colors.white }}
+					className="font-[400] text-[18px]">
+					{content}
+				</p>
 			</div>
 		</motion.div>
 	);
@@ -82,16 +68,13 @@ export default function HowItWorks() {
 		<section
 			id="how-it-works"
 			style={{
-				background: `
-        radial-gradient(ellipse at 62% 41%, rgba(146, 38, 88, 0.5) 0%, rgba(155, 35, 91, 0.18) 55%, rgba(155, 35, 91, 0) 100%),
-        radial-gradient(ellipse at 44% 32%, rgba(32, 96, 221, 0.5) 0%, rgba(32, 96, 221, 0.2) 60%, rgba(32, 96, 221, 0) 100%),
-        #050F2F
-      `,
+				background: `linear-gradient(0deg, #050F2F, #050F2F), radial-gradient(33.54% 24.74% at 62.35% 41.3%, rgba(146, 38, 88, 0.5) 0%, rgba(155, 35, 91, 0.18) 55.5%, rgba(155, 35, 91, 0) 100%), radial-gradient(39.8% 32.49% at 44.14% 31.58%, rgba(32, 96, 221, 0.5) 0%, rgba(5, 41, 161, 0.086) 79.98%, rgba(3, 40, 156, 0) 97.4%)
+`,
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "cover",
 			}}
 			className="relative lg:px-40 h-auto lg:h-[567px] text-center flex flex-col items-center">
-			<div className="flex w-full absolute inset-0 z-10 top-30 w-fit h-fit px-2 justify-between items-center mb-4">
+			<div className="flex w-full absolute inset-0 z-10 top-20 w-fit h-fit pr-2 justify-between items-center mb-4">
 				<img
 					src="/assets/zig-zag.svg"
 					alt="Learn Smartly"
@@ -105,7 +88,7 @@ export default function HowItWorks() {
 			</div>
 
 			<h1
-				className="text-4xl lg:text-5xl font-bold pt-10 md:pt-20"
+				className="text-3xl md:text-4xl lg:text-5xl font-bold pt-10 md:pt-20"
 				style={{ color: colors.white }}>
 				How Gladr Works
 			</h1>
@@ -121,7 +104,7 @@ export default function HowItWorks() {
 				))}
 			</div>
 
-			<div className="absolute bottom-0 right-0 lg:bottom-8 z-10 flex justify-between items-center w-fit h-fit">
+			<div className="absolute bottom-0 right-0 lg:bottom-0 z-10 flex justify-between items-center w-fit h-fit">
 				<img
 					src="/assets/spring.svg"
 					alt="spring icon"
